@@ -85,9 +85,9 @@ section {
 }
 
 .cat-img {
-  width: 100px;
-  max-width: 80%;
+  width: 150px;
+  max-width: 60%;
   border-radius: 20px;
-  margin: 20px auto;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  margin: 15px auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
