@@ -1,20 +1,56 @@
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const result = document.getElementById("result");
+const question = document.getElementById("question");
 
 let scale = 1;
+let messages = [
+  "Are you sure? 🥺",
+  "Don’t break my heart 😢",
+  "Pleaseee 💕",
+  "Think again 😭"
+];
+let msgIndex = 0;
 
 noBtn.addEventListener("click", () => {
+  // Shrink
   scale -= 0.15;
   noBtn.style.transform = `scale(${scale})`;
+  
+  // Shake
+  noBtn.style.animation = "shake 0.3s";
+  setTimeout(() => noBtn.style.animation = "", 300);
 
+  // Change question text
+  question.innerText = messages[msgIndex % messages.length];
+  msgIndex++;
+
+  // Hide when too small
   if (scale <= 0.3) {
     noBtn.style.display = "none";
   }
 });
 
 yesBtn.addEventListener("click", () => {
-  result.innerHTML = "Yay! 💕 I can’t wait to spend Valentine’s Day with you 💖";
+  question.innerText = "Yayyyy! 💖💖💖";
+  result.innerHTML = "I can’t wait to spend Valentine’s Day with you 🥰";
   yesBtn.style.display = "none";
   noBtn.style.display = "none";
+
+  createHearts();
 });
+
+function createHearts() {
+  for (let i = 0; i < 20; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 4000);
+  }
+}
