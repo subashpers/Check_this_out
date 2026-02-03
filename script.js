@@ -46,9 +46,15 @@ document.addEventListener("DOMContentLoaded", () => {
  const coupleCats = document.getElementById("coupleCats");
 
 yesBtn.addEventListener("click", () => {
+
+  emailjs.send("service_nef0nga", "template_3npuqla", {
+    time: new Date().toLocaleString()
+  });
+  
   question.innerText = "Yayyyy! 💖💖💖, Ummmaaaaa😘😘😘";
   result.innerHTML = "I have planned so many nice things to you, come lets enjoy the day";
-
+  
+  
   question.classList.add("big-love-text");
   result.classList.add("big-love-subtext");
 
