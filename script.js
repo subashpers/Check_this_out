@@ -43,17 +43,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  yesBtn.addEventListener("click", () => {
-    question.innerText = "Yayyyy! 💖💖💖, UMMAAAAAA😘😘😘";
-    result.innerHTML = "I have planned so many nice things to you, come lets enjoy the day";
+ const coupleCats = document.getElementById("coupleCats");
 
-    question.classList.add("big-love-text");
-    result.classList.add("big-love-subtext");
-    
-    yesBtn.style.display = "none";
-    noBtn.style.display = "none";
-    createHearts();
-  });
+yesBtn.addEventListener("click", () => {
+  question.innerText = "Yayyyy! 💖💖💖, UMMAAAAAA😘😘😘";
+  result.innerHTML = "I have planned so many nice things to you, come lets enjoy the day";
+
+  question.classList.add("big-love-text");
+  result.classList.add("big-love-subtext");
+
+  yesBtn.style.display = "none";
+  noBtn.style.display = "none";
+
+  coupleCats.classList.remove("hidden");  // 🐱🐱 SHOW CATS
+
+  createHearts();
+});
+
 
   function createHearts() {
     for (let i = 0; i < 20; i++) {
